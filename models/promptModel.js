@@ -1,5 +1,5 @@
 const db = require('../database/firebase');
-const collection = db.ref('flashcards');
+const collection = db.ref('prompts');
 
 exports.getAll = async () => {
     const snapshot = await collection.once('value');

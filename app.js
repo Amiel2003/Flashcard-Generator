@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const flashCardRoutes = require('./routes/flashcardRoutes')
-const AiRoutes = require('./routes/AiRoutes')
+const AiRoutes = require('./routes/promptRoutes')
 
 const app = express()
 
