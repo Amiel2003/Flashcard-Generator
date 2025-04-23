@@ -4,9 +4,18 @@ const backendPrompt = require('../utils/promptPreparer')
 const Prompt = require('../models/promptModel')
 const FlashCard = require('../models/flashCardModel')
 
+exports.verify = async (req, res) => {
+    const user = req.user
+    if (!user) {
+        res.status(500).json({ message: "No login session!" })
+    }
+    res.status(200).json({ message: "This is valid!" })
+}
+
 exports.sendPrompt = async (req, res) => {
     try {
 
+        const userId = req.user.uid
         const { prompt, number, difficulty } = req.body
         const newPrompt = await backendPrompt(prompt, number, difficulty)
 
@@ -30,7 +39,7 @@ exports.sendPrompt = async (req, res) => {
                     const promptId = storePrompt.id
                     // Loop through the Ai-generated flashcards and store them in database
                     json.map(async (card, index) => {
-                        await storeCard(card, promptId)
+                        await storeCard(card, promptId, userId)
                     })
 
                     res.status(200).json({ flashcards: json })
@@ -41,17 +50,19 @@ exports.sendPrompt = async (req, res) => {
 
             } catch (error) {
                 console.error("Error parsing: ", error)
-                res.status(500).json({ error: 'Parsing error:'.error })
+                res.status(500).json({ error: 'Parsing error', shouldRetry: true })
             }
         }
     } catch (error) {
-        res.status(500).json({ error: 'Error sending prompt:'.error })
+        console.error("Error sending prompt: ", error)
+        res.status(500).json({ error: 'Error sending prompt', shouldRetry: true })
     }
 }
 
-async function storeCard(card, promptId) {
+async function storeCard(card, promptId, userId) {
     const newCard = {
         prompt_id: promptId,
+        user_uid: userId,
         ...card
     }
     await FlashCard.create(newCard)
@@ -60,6 +71,7 @@ async function storeCard(card, promptId) {
 async function createPrompt(req) {
     try {
         const prompt = {
+            user_uid: req.user.uid,
             prompt: req.body.prompt,
             number: req.body.number,
             difficulty: req.body.difficulty,

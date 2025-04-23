@@ -9,11 +9,32 @@ exports.getFlashCards = async (req, res) => {
     }
 }
 
+exports.getByPrompt = async (req, res) => {
+    try {
+        const promptId = req.body.prompt_id
+        const cards = await flashCards.getByPrompt(promptId)
+        res.status(200).json({ flashcards: cards })
+    } catch (error) {
+        console.error("Error getting cards by prompt (controller)", error)
+        throw error
+    }
+}
+
+exports.getCardsByUser = async (req, res) => {
+    try {
+        const userId = req.user.uid
+        const user = req.user
+        const cards = await flashCards.getByUser(userId)
+        res.status(200).json({ flashcards: cards, user: user })
+    } catch (error) {
+        res.status(500).json({ error: 'Error getting flashcards:'.error })
+    }
+}
+
 exports.createFlashCard = async (req, res) => {
     try {
 
         // Ensure data only contains answer and question
-        console.log(req.body)
         const flashCard = {
             question: req.body.question,
             answer: req.body.answer,

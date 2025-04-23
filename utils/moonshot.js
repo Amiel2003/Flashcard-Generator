@@ -30,7 +30,7 @@ async function openrouter(userPrompt) {
     if (!response.ok || !data.choices) {
         throw new Error(data?.error?.message || "OpenRouter API error");
     }
-    console.log(data.choices)
+    console.log(data.choices[0].message.content)
     return data.choices[0].message.content;
 }
 

@@ -8,6 +8,6 @@ admin.initializeApp({
     databaseURL: process.env.FIREBASE_URL
 })
 
-const db = admin.database()
+const auth = admin.auth()
 
-module.exports = db
+module.exports = auth

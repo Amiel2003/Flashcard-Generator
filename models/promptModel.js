@@ -1,4 +1,4 @@
-const db = require('../database/firebase');
+const { db } = require('../firebase/firebase');
 const collection = db.ref('prompts');
 
 exports.getAll = async () => {
