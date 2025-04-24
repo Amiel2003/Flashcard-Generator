@@ -5,6 +5,7 @@ export default async function verifyAccess() {
 
     try {
         const token = localStorage.getItem('token')
+        console.log(process.env.NEXT_PUBLIC_BACKEND_ROUTE)
         if (token) {
             const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_ROUTE}`, {
                 headers: {

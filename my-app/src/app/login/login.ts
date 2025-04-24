@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth } from "../auth/firebase";
 
 export const login = async (email: string, password: string): Promise<string> => {
     try {

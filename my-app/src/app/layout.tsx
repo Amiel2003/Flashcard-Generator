@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ClassiGrids - Classified Ads and Listing Website Template.",
-  description: "A modern classified ads and listing platform template.",
+  title: "FlashAi: Ai-driven Flashcards",
+  description: "AI-generated flashcard generator",
 };
 
 export default function RootLayout({

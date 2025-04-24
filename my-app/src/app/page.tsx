@@ -49,6 +49,7 @@ export default function Home() {
 
       const token = localStorage.getItem('token')
 
+      console.log(process.env.NEXT_PUBLIC_BACKEND_ROUTE)
       if (data.prompt != "" && data.number != 0) {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_ROUTE}`, data, {
           headers: {

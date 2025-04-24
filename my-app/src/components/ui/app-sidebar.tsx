@@ -24,7 +24,7 @@ import {
 
 } from "@/components/ui/sidebar"
 import { signOut } from "firebase/auth"
-import { auth } from "@/app/login/firebase"
+import { auth } from "@/app/auth/firebase"
 import { useRouter } from "next/navigation"
 
 export function AppSidebar() {

@@ -4,6 +4,7 @@ import { showToast } from "./toast"
 export const getUserCards = async () => {
     try {
         const token = localStorage.getItem('token')
+        console.log(process.env.NEXT_PUBLIC_BACKEND_USER_CARDS_ROUTE)
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_USER_CARDS_ROUTE}`, {
             headers: {
                 Accept: 'application/json',
@@ -26,7 +27,6 @@ export const getUserCards = async () => {
 export const getCardsByPrompt = async (promptId: string) => {
     try {
         const token = localStorage.getItem('token')
-        console.log(token)
         const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_PROMPT_CARDS_ROUTE}`, { prompt_id: promptId }, {
             headers: {
                 Accept: 'application/json',
