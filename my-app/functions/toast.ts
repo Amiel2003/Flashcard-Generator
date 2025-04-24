@@ -1,5 +1,7 @@
 import Toast from "typescript-toastify";
-export const showToast = (message: string, type: string) => {
+import { ToastType } from "typescript-toastify/lib/type/type";
+
+export const showToast = (message: string, type: ToastType) => {
     new Toast({
         position: "bottom-right",
         toastMsg: message,
