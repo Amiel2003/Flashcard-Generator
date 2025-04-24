@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Calendar, Home, Inbox, Search, Settings, User2, ChevronUp, PenLine, WalletCards } from "lucide-react"
 import { useState, useEffect } from "react"
 import LoadingDots from "../../../components/Loading/loadingdots"
@@ -31,7 +32,9 @@ export function AppSidebar() {
 
     const [prompts, setPrompts] = useState([])
     const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState({
+        email: ""
+    })
     const router = useRouter()
 
     const handleSignOut = async () => {
@@ -82,7 +85,7 @@ export function AppSidebar() {
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
 
-                                {prompts.map((prompt) => (
+                                {prompts.map((prompt: any) => (
                                     <SidebarMenuItem key={prompt.prompt_id}>
                                         <SidebarMenuButton className="hover:bg-gray-800" asChild>
                                             <Link href={`/prompts/${prompt.prompt_id}/${prompt.prompt.prompt}/${prompt.prompt.difficulty}`}>

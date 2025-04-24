@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { WaypointsIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -66,7 +67,7 @@ export default function Home() {
         showToast("Topic must not be empty, number should not be zero!", "error")
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting response: ", error)
       setLoading(false)
       setEmpty(true)
@@ -75,7 +76,7 @@ export default function Home() {
       if (shouldRetry && !retry) {
         // Retries POST whenever there is parsing error in backend
         showToast("Retrying...", "default")
-        setTimeout(() => { handleSubmit(e, true), 1000 })
+        setTimeout(() => handleSubmit(e, true), 1000);
       }
     }
   }
