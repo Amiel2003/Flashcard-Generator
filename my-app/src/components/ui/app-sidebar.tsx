@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Calendar, Home, Inbox, Search, Settings, User2, ChevronUp, PenLine, WalletCards } from "lucide-react"
 import { useState, useEffect } from "react"
 import LoadingDots from "../../../components/Loading/loadingdots"
