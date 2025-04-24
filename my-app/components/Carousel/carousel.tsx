@@ -29,16 +29,16 @@ export default function CarouselHolder({ flashcards }: CarouselProps) {
                 <CarouselContent>
                     {flashcards.map((card, index) => (
                         <CarouselItem key={index}>
-                            <div className="bg-gray-300 w-full rounded-2xl shadow-lg p-10 h-64 flex flex-col justify-center items-center text-center transition-all duration-500">
-                                <p className="text-2xl">{card.question}</p>
+                            <div className="bg-gray-300 w-full rounded-2xl shadow-lg p-4 lg:p-10 h-64 flex flex-col justify-center items-center text-center transition-all duration-500">
+                                <p className="lg:text-2xl text-sm">{card.question}</p>
                                 {showAnswer === index && (
-                                    <p className="mt-4 text-green-600 text-lg font-bold">{card.answer}</p>
+                                    <p className="mt-4 text-green-600 text-xs lg:text-lg font-bold">{card.answer}</p>
                                 )}
                                 <Button variant={'outline'}
                                     onClick={() =>
                                         setShowAnswer(showAnswer === index ? null : index)
                                     }
-                                    className={`mt-6 ${showAnswer === index ? 'bg-orange-600' : 'bg-green-600'} text-white px-4 py-2 rounded hover:bg-blue-600 transition`}
+                                    className={`mt-6 ${showAnswer === index ? 'bg-orange-600' : 'bg-green-600'} text-white px-4 py-2 rounded hover:bg-blue-600 transition text-xs lg:text-md`}
                                 >
                                     {showAnswer === index ? 'Hide Answer' : 'Show Answer'}
                                 </Button>

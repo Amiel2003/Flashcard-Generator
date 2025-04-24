@@ -28,7 +28,7 @@ export default function PromptPage() {
                 <div className="flex justify-center">
                     <div className="w-full max-w-4xl text-center text-white">
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4">
+                            <h2 className="lg:text-2xl text-md font-bold mb-4">
                                 {(title as string)?.replaceAll('%20', ' ') ?? 'Untitled'}
                                 <span className="text-blue-300">
                                     {(difficulty == 'Easy') ? " (Beginner)" :

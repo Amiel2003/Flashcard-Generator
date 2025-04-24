@@ -102,7 +102,7 @@ export default function Home() {
 
   return (
     <section className="bg-gray-950 bg-opacity-60 py-16">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-9 lg:px-4">
         <div className="flex justify-center">
           <div className="w-full max-w-4xl text-center text-white">
             <div className="mb-8">
