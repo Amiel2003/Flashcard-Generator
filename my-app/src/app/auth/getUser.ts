@@ -14,7 +14,7 @@ export const getUserFromBackend = async (idToken: string) => {
         return user
     } catch (error) {
         console.error("Error verifying registered user: ", error)
-        showToast("Error verifying registered user", "error")
+        showToast("Error verifying registered user: ", "error")
         return null
     }
 }
