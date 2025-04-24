@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation"
 export default function Header() {
 
   return (
-    <nav className="border-gray-800 bg-gray-800 dark:bg-gray-800 dark:border-gray-700">
+    <nav className="border-gray-800 bg-gray-800 dark:bg-gray-800 dark:border-gray-700 sticky top-0 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex gap-3">
           <SidebarTrigger />
