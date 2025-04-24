@@ -28,10 +28,11 @@ export default function PromptPage() {
                 <div className="flex justify-center">
                     <div className="w-full max-w-4xl text-center text-white">
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4">{title.replaceAll('%20', ' ')}
+                            <h2 className="text-2xl font-bold mb-4">
+                                {(title as string)?.replaceAll('%20', ' ') ?? 'Untitled'}
                                 <span className="text-blue-300">
-                                    {(difficulty == 'Easy') ? " (Beginner)" : (difficulty == 'Medium') ? " (Intermediate)"
-                                        : " (Experts)"}
+                                    {(difficulty == 'Easy') ? " (Beginner)" :
+                                        (difficulty == 'Medium') ? " (Intermediate)" : " (Experts)"}
                                 </span>
                             </h2>
                         </div>
